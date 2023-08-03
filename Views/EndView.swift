@@ -16,8 +16,10 @@ struct EndView: View {
         
  GeometryReader { geometry in
             ZStack {
+               
                 VStack(alignment: .center, spacing: 20) {
                     
+                  
                     
                     Text("As we saw in class, the Machine is a device composed of an infinite tape, it was the first abstract model of a computer. That's it class, did you like the class? We will always remember that it was thanks to this invention that the computers we use today were developed")
                         .font(.custom("PixelOperatorMonoHB8", size: 26))
@@ -56,7 +58,7 @@ struct EndView: View {
                     }
                     
                     
-                }.padding(.horizontal, 32).padding(.top, 100)
+                }.padding(.horizontal, 32).padding(.top, 250)
             }
         }.background(Image("frame-straight").resizable()
             .scaledToFill())
