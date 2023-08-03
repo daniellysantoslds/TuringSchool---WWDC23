@@ -56,12 +56,16 @@ struct OnboardingOneView: View {
                                     flowCurrentIndex += 1
                                     
                                 }) {
+                                    
                                     Text("next")
                                         .foregroundColor(Color("Yellow-0"))
                                         .font(.custom("PixelOperatorMonoHB8", size: 24))
                                 }
+                               // .frame(width: UIScreen.main.bounds.width * 90)
+                                
                                 
                             }
+                                
                             
                             else if (flowCurrentIndex == 2) {
                                 Button(action: {
@@ -72,9 +76,9 @@ struct OnboardingOneView: View {
                                         .foregroundColor(Color("Yellow-0"))
                                         .font(.custom("PixelOperatorMonoHB8", size: 24))
                                 }
-                                .sheet(isPresented: $isClassViewPresented) {
-                                   PopUpView()
-                                       // .edgesIgnoringSafeArea(.all)
+                                .fullScreenCover(isPresented: $showNavigation, content: {
+                                    PopUpView().animation(nil)
+                                })
                                 }
                                 
                                 
@@ -91,11 +95,7 @@ struct OnboardingOneView: View {
                     )
                     .frame(maxWidth: geometry.size.width * 0.95, maxHeight:  geometry.size.height * 0.90).position(x: geometry.size.width/2, y: geometry.size.height/2)
                     
-                    Image("turin").resizable()
-                        .frame(width: 180, height: 180)
-                        .alignmentGuide(.top) { d in d[.top] }
-                        .alignmentGuide(.leading) { d in d[.leading] }
-                        .offset(x: geometry.size.width / 35,  y: geometry.size.height - 195)
+                    
                     
                 }
             }
@@ -104,16 +104,18 @@ struct OnboardingOneView: View {
                 .scaledToFill())
         }
         
+        
+    }
+    
+
+
+struct OnboardingOneView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingOneView()
     }
 }
-        
-        struct OnboardingOneView_Previews: PreviewProvider {
-            static var previews: some View {
-                OnboardingOneView()
-            }
-        }
-        
-        
-        
-    
+
+
+
+
 

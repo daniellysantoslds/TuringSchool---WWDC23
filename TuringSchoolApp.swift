@@ -29,7 +29,7 @@ struct TuringSchoolApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingOneView()
         }
     }
 }

@@ -117,7 +117,7 @@ struct PopUpView: View {
                                         } .font(.custom("PixelOperatorMonoHB8", size: 20))
                                             .foregroundColor(Color("marron")).padding()
                                             .fullScreenCover(isPresented:  $showNavigation) {
-                                                OnboardinOneeView()
+                                                OnboardingOneView()
                                             }
                                     }
                                     
@@ -137,6 +137,7 @@ struct PopUpView: View {
             }
         }
         .background(Image("wall").resizable().scaledToFill())
+        .ignoresSafeArea()
     }
     
  
