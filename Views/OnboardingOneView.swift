@@ -85,6 +85,7 @@ struct OnboardingOneView: View {
                             }
                             
                         }
+                    
                     }
                     
                     
@@ -102,7 +103,9 @@ struct OnboardingOneView: View {
             .background(Image("wall")
                 .resizable()
                 .scaledToFill())
+            .ignoresSafeArea()
         }
+        
         
         
     }
