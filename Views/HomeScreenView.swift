@@ -32,24 +32,20 @@ struct HomeScreenView: View {
                         .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.8)
                            .position(x: UIScreen.main.bounds.width * 0.2, y: UIScreen.main.bounds.height * 0.77)
                            .offset(x: -UIScreen.main.bounds.width * 0.05)
-                        
-                 
-                  
-//                        .alignmentGuide(.top) { d in d[.top] }
-//                        .alignmentGuide(.leading) { d in d[.leading] }
-//                        .offset(x: -geometry.size.width / 2.60 + 20, y: 169)
+                             
                     
-                    
-                    
-                    GifView()//.offset(x: rectanglePosition.x, y: rectanglePosition.y)
+                    GifView().offset(x: rectanglePosition.x, y: rectanglePosition.y)
+//
                         .animation(.linear(duration: 5))
                         .onAppear {
                             self.rectanglePosition = CGPoint(x: -geometry.size.width / 1.5, y: 0)
+                          
                         }
-                    
-//                        .alignmentGuide(.trailing) { d in d[.trailing] }
-//                        .offset(x: geometry.size.width / 2.60,  y: -143)
-//
+                        .alignmentGuide(.trailing) { d in d[.trailing] }
+                        .offset(x: geometry.size.width / 2.60,  y: -143)
+
+
+             
                         .onAppear{
                             music(music: "sound")
                         }
@@ -79,7 +75,7 @@ struct HomeScreenView: View {
                     }) {
                         Image("play-button")
                     }
-                    .frame(width: 100, height: 100)
+                    .frame(width: 50, height: 50)
                     .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                     .edgesIgnoringSafeArea(.all)
                     .fullScreenCover(isPresented: $showModal) {

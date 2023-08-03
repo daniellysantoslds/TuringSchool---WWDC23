@@ -59,7 +59,7 @@ struct GifView: View {
     var body: some View {
         VStack {
             AnimatedGifView(images: images, duration: 0.5)
-                .frame(width: 50, height: 50)
+                .frame(width: 30, height: 30)
                 //.border(Color.black)
 //            Button("Create GIF") {
 //                createGif(from: images, withName: "animated.gif")

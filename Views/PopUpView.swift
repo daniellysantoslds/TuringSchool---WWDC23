@@ -89,7 +89,7 @@ struct PopUpView: View {
                 if exibirPopup {
                     GeometryReader { geometry in
                         Color.white
-                            .frame(width: geometry.size.width * 0.8, height:geometry.size.height * 0.50)
+                            .frame(width: geometry.size.width * 0.6, height:geometry.size.height * 0.40)
                             .overlay(
                                 VStack {
                                     Text(flow[flowCurrentIndex].popUpDescription)
@@ -102,7 +102,7 @@ struct PopUpView: View {
                                     HStack(spacing: 600) {
                                         Button("esc") {
                                             exibirPopup.toggle()
-                                        } .font(.custom("PixelOperatorMonoHB8", size: 18))
+                                        } .font(.custom("PixelOperatorMonoHB8", size: 24))
                                             .foregroundColor(Color("marron"))
                                         Button("next") {
                                             
@@ -117,7 +117,7 @@ struct PopUpView: View {
                                         } .font(.custom("PixelOperatorMonoHB8", size: 20))
                                             .foregroundColor(Color("marron")).padding()
                                             .fullScreenCover(isPresented:  $showNavigation) {
-                                                OnboardingOneView()
+                                                EndView()
                                             }
                                     }
                                     
@@ -125,10 +125,8 @@ struct PopUpView: View {
                                     
                                     
                                 }.padding(.vertical, 10)
-                                
-                                //.frame(width: (geometry.size.width * 0.8) * 0.88, height:(geometry.size.height * 0.60) * 0.9)
+                             
                             )
-                        //.frame(maxWidth: .infinity, maxHeight: .infinity)
                         
                             .position(x: geometry.size.width/2, y: geometry.size.height/1.5)
                         
