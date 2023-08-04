@@ -99,7 +99,7 @@ struct PopUpView: View {
                                     
                                     
                                     
-                                    HStack(spacing: 600) {
+                                    HStack(spacing: 400) {
                                         Button("esc") {
                                             exibirPopup.toggle()
                                         } .font(.custom("PixelOperatorMonoHB8", size: 24))

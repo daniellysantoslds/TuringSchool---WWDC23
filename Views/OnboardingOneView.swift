@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingOneView: View {
     
-    @State private var showButton = true
+    @State var showButton = true
     
     @State private var showNavigation = false
     
@@ -17,35 +17,26 @@ struct OnboardingOneView: View {
     
     
     @State private var flow: [ElementTexts] = [
-        ElementTexts(identifier: "onboarding1", text: "Hey guys! My name is Alan Turing and I will be your new math teacher. In today's class, I'd like to introduce you to one of my most important inventions: the Turing Machine"),
-        ElementTexts(identifier: "onboarding2", text: "As our lesson is brief, I would like to share four important points that make up the machine: the head, the initial state, the input data and the white symbol. That's a lot of detail, but we'll try to cover everything before the ring tone! Ready?"),
-        ElementTexts(identifier: "onboarding3", text: "As our lesson is brief, I would like to share four important points that make up the machine: the head, the initial state, the input data and the white symbol. That's a lot of detail, but we'll try to cover everything before the ring tone! Ready?"),
+        ElementTexts(identifier: "onboarding1", text: "llllllHey guys! My name is Alan Turing and I will be your new math teacher. In today's class, I'd like to introduce you to one of my most important inventions: the Turing Machine"),
+        ElementTexts(identifier: "onboarding2", text: "OIIIIIIAs our lesson is brief, I would like to share four important points that make up the machine: That's a lot of detail, but we'll try to cover everything before the ring tone! Ready?"),
+        ElementTexts(identifier: "onboarding3", text: "As our lesson is brief, I would like to share four important points that make up the machine: That's a lot of detail, but we'll try to cover everything before the ring tone! Ready?"),
         
     ];
     
     @State private var flowCurrentIndex = 0;
     
-    
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
                 GeometryReader { geometry in
-                    VStack {
-                        Text(flow[flowCurrentIndex].text)
-                            .font(.custom("PixelOperatorMonoHB8", size: 30))
-                            .lineSpacing(20)
-                            .frame(width: 1100, height: 730, alignment: .center)
-                            .foregroundColor(Color.white)
-                            .transition(.scale)
-                            .multilineTextAlignment(.center)
-                          
-            
-                                if showButton {
+                    VStack(spacing: 100) {
+                        TypewriterView(text: flow[flowCurrentIndex].text)
+          
+                                    if showButton {
                                     if (flowCurrentIndex == 0) {
                                         Button(action: {
                                             flowCurrentIndex +=  1
-                                            
+                                           
                                         }) {
                                             Text("next")
                                                 .foregroundColor(Color("Yellow-0"))
@@ -57,12 +48,12 @@ struct OnboardingOneView: View {
                                     
                                     else if (flowCurrentIndex == 1) {
                                         Button(action: {
-                                            showNavigation.toggle()
                                             flowCurrentIndex += 1
+                                
                                             
                                         }) {
                                             
-                                            Text("go to class")
+                                            Text("pipoca")
                                                 .foregroundColor(Color("Yellow-0"))
                                                 .font(.custom("PixelOperatorMonoHB8", size: 30))
                                         }
@@ -74,26 +65,27 @@ struct OnboardingOneView: View {
                                     
                                     else if (flowCurrentIndex == 2) {
                                         Button(action: {
-                                            isClassViewPresented = true
+                                            showNavigation.toggle()
+                                            
                                             
                                         }) {
                                             Text("go to class")
                                                 .foregroundColor(Color("Yellow-0"))
-                                                .font(.custom("PixelOperatorMonoHB8", size: 24))
+                                                .font(.custom("PixelOperatorMonoHB8", size: 30))
                                         }
                                         .fullScreenCover(isPresented: $showNavigation, content: {
                                                PopUpView().animation(.easeIn(duration: 0.8))
                                         })
-//
                                     }
-                                   
-                                    
                                     
                                 }
                                 
                                 
                             }
-                            .padding(.leading, 100)
+                            .padding(.leading, 40)
+                            .padding(.trailing, 40)
+                            .padding(.top, 200)
+                            .padding(.bottom, 100)
                         
                     }
                     
@@ -114,6 +106,8 @@ struct OnboardingOneView: View {
                 .scaledToFill())
             .ignoresSafeArea()
         }
+    
+
  }
         
         
