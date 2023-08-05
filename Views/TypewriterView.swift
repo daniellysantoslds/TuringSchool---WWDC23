@@ -11,6 +11,8 @@ struct TypewriterView: View {
     let text: String
     @State private var animatedText: String = ""
     
+    
+
     var body: some View {
         Text(animatedText)
             .font(.custom("PixelOperatorMonoHB8", size: 30))

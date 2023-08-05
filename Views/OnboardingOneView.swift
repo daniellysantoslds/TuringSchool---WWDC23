@@ -15,11 +15,12 @@ struct OnboardingOneView: View {
     
     @State private var isClassViewPresented = false
     
-    
+
+
     @State private var flow: [ElementTexts] = [
-        ElementTexts(identifier: "onboarding1", text: "llllllHey guys! My name is Alan Turing and I will be your new math teacher. In today's class, I'd like to introduce you to one of my most important inventions: the Turing Machine"),
-        ElementTexts(identifier: "onboarding2", text: "OIIIIIIAs our lesson is brief, I would like to share four important points that make up the machine: That's a lot of detail, but we'll try to cover everything before the ring tone! Ready?"),
-        ElementTexts(identifier: "onboarding3", text: "As our lesson is brief, I would like to share four important points that make up the machine: That's a lot of detail, but we'll try to cover everything before the ring tone! Ready?"),
+        ElementTexts(identifier: "onboarding1", text: "Hey guys! My name is Alan Turing and I will be your new math teacher. In addition to being a mathematician, I am a computer scientist, cryptanalyst, philosopher and biologist, born in London."),
+        ElementTexts(identifier: "onboarding2", text: "In today's class, I'd like to introduce you to one of my most important inventions: the Turing Machine - yes, it bears my last name! This is a theoretical device also known as a universal machine."),
+        ElementTexts(identifier: "onboarding3", text: "As our lesson is brief, I would like to share four important points that make up the machine: the head, the initial state, the input data and the white symbol. That's a lot of detail, but we'll try to cover everything before the ring tone! Ready?"),
         
     ];
     
@@ -29,10 +30,17 @@ struct OnboardingOneView: View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
                 GeometryReader { geometry in
-                    VStack(spacing: 100) {
-                        TypewriterView(text: flow[flowCurrentIndex].text)
-          
-                                    if showButton {
+                    VStack(spacing: 0) {
+                       Text(flow[flowCurrentIndex].text)
+                            .font(.custom("PixelOperatorMonoHB8", size: 30))
+                            .lineSpacing(15)
+                            .padding(.leading, 16)
+                            .foregroundColor(Color.white)
+                            .lineSpacing(60)
+                            .transition(.scale)
+                            .multilineTextAlignment(.center)
+                            
+                                 if showButton {
                                     if (flowCurrentIndex == 0) {
                                         Button(action: {
                                             flowCurrentIndex +=  1
@@ -43,6 +51,7 @@ struct OnboardingOneView: View {
                                                 .font(.custom("PixelOperatorMonoHB8", size: 30))
                                         }
                                         .padding(.leading, 20)
+                                        .padding(.top, 70)
                                         
                                     }
                                     
@@ -53,11 +62,12 @@ struct OnboardingOneView: View {
                                             
                                         }) {
                                             
-                                            Text("pipoca")
+                                            Text("next")
                                                 .foregroundColor(Color("Yellow-0"))
                                                 .font(.custom("PixelOperatorMonoHB8", size: 30))
                                         }
                                         .padding(.leading, 20)
+                                        .padding(.top, 70)
                                         
                                         
                                     }
@@ -73,12 +83,14 @@ struct OnboardingOneView: View {
                                                 .foregroundColor(Color("Yellow-0"))
                                                 .font(.custom("PixelOperatorMonoHB8", size: 30))
                                         }
+                                        .padding(.top, 70)
                                         .fullScreenCover(isPresented: $showNavigation, content: {
                                                PopUpView().animation(.easeIn(duration: 0.8))
                                         })
                                     }
                                     
                                 }
+                                
                                 
                                 
                             }
